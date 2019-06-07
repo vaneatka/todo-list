@@ -8,7 +8,9 @@
 
     <li>
     <input type="checkbox" <?php print ($task['status']=="done")? "checked": null;  ?> >
-    <?php print $task['title'] ?>
+    <a href="" style="text-decoration:none; color:black; cursor:default;">
+    <?php print $task['title'] ?>    
+    </a>
     <small>
     <?php print $task['created']
     // history date format,today, yesterday, this week, this year
