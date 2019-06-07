@@ -1,6 +1,7 @@
 <?php 
+include 'config.php';
 include 'lib/tasks.php';
-$tasks = load_tasks();
+$tasks = load_tasks(false);// ne vse
 ?>
 
 

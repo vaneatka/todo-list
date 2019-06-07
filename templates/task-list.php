@@ -3,8 +3,8 @@
 <div>
 <ul>
 
-<h3>Showing Tasks <?php print count($tasks)?></h3>
-<?php foreach($tasks as $task){   ?>
+<h3>Showing Tasks <?php print count($tasks['items'])?></h3>
+<?php foreach($tasks['items'] as $task){   ?>
 
     <li>
     <input type="checkbox" <?php print ($task['status']=="done")? "checked": null;  ?> >
@@ -19,6 +19,20 @@
 <?php } ?>
 
 </ul>
+<hr>
+<a href=""><</a>
+<?php for($p=1; $p<=$tasks['total_pages'];$p++){?>
+<a href="?page=<?php print $p?>"><?php 
+if($tasks['current_page']==$p){
+    print '['.$p.']';
+}else{
+    print $p;
+}
+
+?></a>
+
+<?php } ?>
+<a href="">></a>
 
 
 </div>
