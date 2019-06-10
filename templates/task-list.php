@@ -5,14 +5,13 @@
 
 <h3>Showing Tasks <?php print count($tasks['items'])?></h3>
 <?php foreach($tasks['items'] as $task){   ?>
-
     <li>
     <input type="checkbox" <?php print ($task['status']=="done")? "checked": null;  ?> >
     <a href="" style="text-decoration:none; color:black; cursor:default;">
     <?php print $task['title'] ?>    
     </a>
     <small>
-    <?php print $task['created']
+    <?php print date_difference($task['created'])
     // history date format,today, yesterday, this week, this year
     ?>
     </small>
@@ -22,7 +21,7 @@
 
 </ul>
 <hr>
-<a href=""><</a>
+<a href="?pag=prev"><</a>
 <?php for($p=1; $p<=$tasks['total_pages'];$p++){?>
 <a href="?page=<?php print $p?>"><?php 
 if($tasks['current_page']==$p){
@@ -34,7 +33,7 @@ if($tasks['current_page']==$p){
 ?></a>
 
 <?php } ?>
-<a href="">></a>
+<a href="?pag=next">></a>
 
 
 </div>
